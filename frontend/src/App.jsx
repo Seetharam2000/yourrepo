@@ -23,7 +23,8 @@ function App() {
     setRepoUrl(url);
 
     try {
-      const response = await fetch('http://localhost:3001/api/analyze', {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/analyze`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
